@@ -7,6 +7,7 @@ import 'package:to_do_app/feature/auth/presentation/view/domain/repos/auth_repo.
 class LoginUseCase extends UseCase<LoginEntites, LoginParams> {
   final AuthRepo authRepo;
   LoginUseCase(this.authRepo);
+
   @override
   Future<Either<ServerException, LoginEntites>> call(LoginParams param) async {
     return await authRepo.login(
