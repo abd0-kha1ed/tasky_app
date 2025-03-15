@@ -1,6 +1,6 @@
 import 'package:to_do_app/feature/auth/domain/entites/register_entites.dart';
 
-class RegisterModel extends RegisterEntites {
+class RegisterModel extends RegisterEntities {
   final String id;
   final String accessToken;
   final String refreshToken;

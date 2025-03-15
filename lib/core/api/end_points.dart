@@ -11,7 +11,7 @@ class EndPoint {
 class ApiKey {
   static String status = "status";
   static String errorMessage = "ErrorMessage";
-  static String experinceYear = "experienceYears";
+  static String experienceYear = "experienceYears";
   static const String id = "_id";
   static const String phoneNumber = "phone";
   static const String password = "password";
@@ -19,7 +19,7 @@ class ApiKey {
   static const String refreshToken = "refresh_token";
   static const String address = "address";
   static String message = "message";
-  static String expericneLevel = "level";
+  static String experienceLevel = "level";
   static String name = "displayName";
 
   static String confirmPassword = "confirmPassword";

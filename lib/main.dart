@@ -1,10 +1,13 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do_app/core/utils/app_routers.dart';
+import 'package:to_do_app/core/utils/functions/setup_service_locator.dart';
 
 void main() {
+  setupServiceLocator();
   runApp(DevicePreview(
     builder: (context) {
+      
       return const TaskyApp();
     }
   ));

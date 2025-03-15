@@ -7,7 +7,7 @@ class LoginModel extends LoginEntites {
 
   LoginModel({
     required super.id,
-    required int super.phoneNumber,
+    required super.phoneNumber,
     required super.password,
     required this.accessToken,
     required this.refreshToken,
@@ -16,7 +16,7 @@ class LoginModel extends LoginEntites {
   factory LoginModel.fromJson(Map<String, dynamic> jsonData) {
     return LoginModel(
       id: jsonData[ApiKey.id] ?? '',
-      phoneNumber: int.tryParse(jsonData[ApiKey.phoneNumber].toString()) ?? 0,
+      phoneNumber: jsonData[ApiKey.phoneNumber] ?? '',
       password: jsonData[ApiKey.password] ?? '',
       accessToken: jsonData[ApiKey.accessToken] ?? '',
       refreshToken: jsonData[ApiKey.refreshToken] ?? '',

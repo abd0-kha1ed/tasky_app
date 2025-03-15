@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomDropdown extends StatefulWidget {
-  const CustomDropdown({super.key, required this.items});
+  const CustomDropdown({super.key, required this.items, this.onChanged});
   final List<String> items;
+  final void Function(String?)? onChanged;
 
   @override
   _CustomDropdownState createState() => _CustomDropdownState();
@@ -32,11 +33,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
                 ),
               )
               .toList(),
-          onChanged: (value) {
-            setState(() {
-              selectedExperienceLevel = value;
-            });
-          },
+          onChanged: widget.onChanged,
         ),
       ],
     );

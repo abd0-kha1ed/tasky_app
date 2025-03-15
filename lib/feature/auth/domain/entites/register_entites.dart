@@ -1,12 +1,12 @@
-class RegisterEntites {
+class RegisterEntities {
   final String name;
-  final num phoneNumber;
-  final num experienceYear;
+  final String phoneNumber;
+  final String experienceYear;
   final String experienceLevel;
   final String address;
   final String password;
 
-  RegisterEntites(
+  RegisterEntities(
       {required this.name,
       required this.phoneNumber,
       required this.experienceYear,

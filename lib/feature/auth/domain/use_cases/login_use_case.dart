@@ -16,7 +16,7 @@ class LoginUseCase extends UseCase<LoginEntites, LoginParams> {
 }
 
 class LoginParams {
-  final num phoneNumber;
+  final String phoneNumber;
   final String password;
 
   LoginParams({required this.phoneNumber, required this.password});

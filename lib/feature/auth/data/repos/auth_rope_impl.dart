@@ -12,16 +12,16 @@ class AuthRopeImpl implements AuthRepo {
 
   @override
   Future<Either<ServerException, LoginEntites>> login(
-      {required num phoneNumber, required String password}) async {
+      {required String phoneNumber, required String password}) async {
     return await authRemoteDataSource.login(
         phone: phoneNumber, password: password);
   }
 
   @override
-  Future<Either<ServerException, RegisterEntites>> register(
+  Future<Either<ServerException, RegisterEntities>> register(
       {required String name,
-      required num phoneNumber,
-      required num experienceYear,
+      required String phoneNumber,
+      required String experienceYear,
       required String experienceLevel,
       required String address,
       required String password}) async {
