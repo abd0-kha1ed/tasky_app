@@ -11,17 +11,17 @@ class EndPoint {
 class ApiKey {
   static String status = "status";
   static String errorMessage = "ErrorMessage";
-
+  static String experinceYear = "experienceYears";
   static const String id = "_id";
   static const String phoneNumber = "phone";
   static const String password = "password";
   static const String accessToken = "access_token";
   static const String refreshToken = "refresh_token";
-
+  static const String address = "address";
   static String message = "message";
+  static String expericneLevel = "level";
+  static String name = "displayName";
 
-  static String name = "name";
-  static String phone = "phone";
   static String confirmPassword = "confirmPassword";
   static String location = "location";
   static String profilePic = "profilePic";
