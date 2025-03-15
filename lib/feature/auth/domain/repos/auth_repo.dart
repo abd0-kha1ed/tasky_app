@@ -1,8 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:to_do_app/core/errors/excptions.dart';
-
-import 'package:to_do_app/feature/auth/presentation/view/domain/entites/login_entites.dart';
-import 'package:to_do_app/feature/auth/presentation/view/domain/entites/register_entites.dart';
+import 'package:to_do_app/feature/auth/domain/entites/login_entites.dart';
+import 'package:to_do_app/feature/auth/domain/entites/register_entites.dart';
 
 abstract class AuthRepo {
   Future<Either<ServerException, LoginEntites>> login({
