@@ -1,6 +1,6 @@
 class RegisterEntites {
   final String name;
-  final String phoneNumber;
+  final num phoneNumber;
   final num experienceYear;
   final String experienceLevel;
   final String address;

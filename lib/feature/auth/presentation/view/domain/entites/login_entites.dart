@@ -1,6 +1,6 @@
 class LoginEntites {
   final String id;
-  final String phoneNumber;
+  final num phoneNumber;
   final String password;
 
   LoginEntites(
