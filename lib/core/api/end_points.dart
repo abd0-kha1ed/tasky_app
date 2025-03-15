@@ -11,12 +11,15 @@ class EndPoint {
 class ApiKey {
   static String status = "status";
   static String errorMessage = "ErrorMessage";
-  static String email = "email";
-  static String password = "password";
-  static String refreshToken = "refresh_token";
-  static String accesstoken = "access_token";
+
+  static const String id = "_id";
+  static const String phoneNumber = "phone";
+  static const String password = "password";
+  static const String accessToken = "access_token";
+  static const String refreshToken = "refresh_token";
+
   static String message = "message";
-  static String id = "_id";
+
   static String name = "name";
   static String phone = "phone";
   static String confirmPassword = "confirmPassword";

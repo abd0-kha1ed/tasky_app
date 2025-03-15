@@ -1,29 +1,35 @@
 import 'package:to_do_app/core/api/end_points.dart';
+import 'package:to_do_app/feature/auth/domain/entites/login_entites.dart';
 
-class LoginModel {
-  final String id;
+class LoginModel extends LoginEntites {
   final String accessToken;
   final String refreshToken;
 
   LoginModel({
-    required this.id,
+    required super.id,
+    required int super.phoneNumber,
+    required super.password,
     required this.accessToken,
     required this.refreshToken,
   });
 
   factory LoginModel.fromJson(Map<String, dynamic> jsonData) {
     return LoginModel(
-      id: jsonData[ApiKey.id],
-      accessToken: jsonData[ApiKey.accesstoken],
-      refreshToken: jsonData[ApiKey.refreshToken],
+      id: jsonData[ApiKey.id] ?? '',
+      phoneNumber: int.tryParse(jsonData[ApiKey.phoneNumber].toString()) ?? 0,
+      password: jsonData[ApiKey.password] ?? '',
+      accessToken: jsonData[ApiKey.accessToken] ?? '',
+      refreshToken: jsonData[ApiKey.refreshToken] ?? '',
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      '_id': id,
-      'access_token': accessToken,
-      'refresh_token': refreshToken,
+      ApiKey.id: id,
+      ApiKey.phoneNumber: phoneNumber,
+      ApiKey.password: password,
+      ApiKey.accessToken: accessToken,
+      ApiKey.refreshToken: refreshToken,
     };
   }
 }
