@@ -97,7 +97,7 @@ class _RegisterSectionState extends State<RegisterSection> {
               selectedExperienceLevel = value;
             });
           },
-                  items: [
+                  items: const [
                   'Entry Level',
                   'Mid Level',
                   'Senior Level',
