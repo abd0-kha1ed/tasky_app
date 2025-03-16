@@ -43,8 +43,8 @@ class AuthRemoteDataSource {
         data: {
           ApiKey.name: name,
           ApiKey.phoneNumber: phoneNumber,
-          ApiKey.experienceYear: experienceYear,
-          ApiKey.experienceLevel: experienceLevel,
+          ApiKey.experinceYear: experienceYear,
+          ApiKey.expericneLevel: experienceLevel,
           ApiKey.address: address,
           ApiKey.password: password,
         },

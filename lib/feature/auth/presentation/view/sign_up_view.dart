@@ -8,12 +8,13 @@ import 'package:to_do_app/feature/auth/presentation/view/widget/sign_up_view_bod
 
 class SignUpView extends StatelessWidget {
   const SignUpView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => RegisterCubit(
         registerUseCase: RegisterUseCase(
-          getIt.get<AuthRopeImpl>(),
+          getIt<AuthRopeImpl>(),
         ),
       ),
       child: const Scaffold(
