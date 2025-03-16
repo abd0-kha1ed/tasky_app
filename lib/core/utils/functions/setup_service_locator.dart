@@ -8,8 +8,7 @@ import 'package:to_do_app/feature/auth/data/repos/auth_rope_impl.dart';
 final getIt = GetIt.instance;
 
 void setupServiceLocator(SharedPreferences sharedPreferences) {
-  getIt.registerSingleton<SharedPreferences>(
-      sharedPreferences); // ✅ تسجيل SharedPreferences
+  getIt.registerSingleton<SharedPreferences>(sharedPreferences);
 
   getIt.registerSingleton<DioConsumer>(
     DioConsumer(

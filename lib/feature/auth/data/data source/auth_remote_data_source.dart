@@ -25,9 +25,9 @@ class AuthRemoteDataSource {
         },
       );
       final user = LoginModel.fromJson(response);
-final decodedToken = JwtDecoder.decode(user.accessToken);
-      CacheHelper().saveData(key: ApiKey.accessToken, value: user.accessToken);
-      CacheHelper().saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
+      final decodedToken = JwtDecoder.decode(user.accessToken);
+      CacheHelper.saveData(key: ApiKey.accessToken, value: user.accessToken);
+      CacheHelper.saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
       return Right(user);
     } on ServerException catch (e) {
       return Left(ServerException(errModel: e.errModel));
