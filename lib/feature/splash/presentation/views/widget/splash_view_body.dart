@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:to_do_app/core/api/end_points.dart';
+import 'package:to_do_app/core/cache/cache_helper.dart';
 import 'package:to_do_app/core/utils/app_routers.dart';
 import 'package:to_do_app/core/utils/assets.dart';
 
@@ -11,16 +13,25 @@ class SplashViewBody extends StatefulWidget {
 }
 
 class _SplashViewBodyState extends State<SplashViewBody> {
-  void navigateToHomeView() {
+  void navigateToNextView() {
     Future.delayed(const Duration(seconds: 4), () {
-      GoRouter.of(context).go(AppRouters.kStartView);
+      final String? accessToken =
+          CacheHelper.getDataString(key: ApiKey.accessToken);
+
+      if (accessToken != null && accessToken.isNotEmpty) {
+        GoRouter.of(context).go(AppRouters
+            .kHomeTasks); // ✅ التوجيه للـ HomeView إذا كان المستخدم مسجلاً
+      } else {
+        GoRouter.of(context).go(AppRouters
+            .kStartView); // ✅ التوجيه لـ StartView إذا لم يسجل المستخدم
+      }
     });
   }
 
   @override
   void initState() {
     super.initState();
-    navigateToHomeView();
+    navigateToNextView();
   }
 
   @override
