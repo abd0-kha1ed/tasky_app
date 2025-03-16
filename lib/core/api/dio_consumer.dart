@@ -2,15 +2,19 @@ import 'package:dio/dio.dart';
 import 'package:to_do_app/core/api/api_consumer.dart';
 import 'package:to_do_app/core/api/api_interceptors.dart';
 import 'package:to_do_app/core/api/end_points.dart';
+import 'package:to_do_app/core/cache/cache_helper.dart';
 import 'package:to_do_app/core/errors/excptions.dart';
+// تأكد من تهيئة CacheHelper قبل استخدامه
+// مهم جدًا قبل الاستخدام
 
+Dio dio = Dio();
 
 class DioConsumer extends ApiConsumer {
   final Dio dio;
 
-  DioConsumer( {required this.dio}) {
+  DioConsumer({required this.dio}) {
     dio.options.baseUrl = EndPoint.baseUrl;
-    dio.interceptors.add(ApiInterceptor());
+    // dio.interceptors.add(ApiInterceptor(cacheHelper: null));
     dio.interceptors.add(LogInterceptor(
       request: true,
       requestHeader: true,
