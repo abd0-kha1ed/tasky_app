@@ -9,8 +9,8 @@ class EndPoint {
 }
 
 class ApiKey {
-  static String status = "status";
-  static String errorMessage = "ErrorMessage";
+  static String status = "statusCode";
+  static String errorMessage = "message";
   static String experinceYear = "experienceYears";
   static const String id = "_id";
   static const String phoneNumber = "phone";

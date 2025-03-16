@@ -23,7 +23,7 @@ class RegisterUseCase extends UseCase<RegisterEntities, RegisterParam> {
 class RegisterParam {
   final String name;
   final String phoneNumber;
-  final String experienceYear;
+  final int experienceYear;
   final String experienceLevel;
   final String address;
   final String password;

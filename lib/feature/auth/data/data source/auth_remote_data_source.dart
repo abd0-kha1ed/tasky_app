@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:to_do_app/core/api/api_consumer.dart';
 import 'package:to_do_app/core/api/end_points.dart';
+import 'package:to_do_app/core/cache/cache_helper.dart';
 import 'package:to_do_app/core/errors/excptions.dart';
 import 'package:to_do_app/feature/auth/data/models/login_model.dart';
 import 'package:to_do_app/feature/auth/data/models/register_model.dart';
@@ -22,8 +24,11 @@ class AuthRemoteDataSource {
           ApiKey.password: password,
         },
       );
-
-      return Right(LoginModel.fromJson(response));
+      final user = LoginModel.fromJson(response);
+final decodedToken = JwtDecoder.decode(user.accessToken);
+      CacheHelper().saveData(key: ApiKey.accessToken, value: user.accessToken);
+      CacheHelper().saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
+      return Right(user);
     } on ServerException catch (e) {
       return Left(ServerException(errModel: e.errModel));
     }
@@ -32,7 +37,7 @@ class AuthRemoteDataSource {
   Future<Either<ServerException, RegisterModel>> register({
     required String name,
     required String phoneNumber,
-    required String experienceYear,
+    required int experienceYear,
     required String experienceLevel,
     required String address,
     required String password,

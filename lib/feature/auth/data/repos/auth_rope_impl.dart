@@ -11,7 +11,7 @@ class AuthRopeImpl implements AuthRepo {
   AuthRopeImpl({required this.authRemoteDataSource});
 
   @override
-  Future<Either<ServerException, LoginEntites>> login(
+  Future<Either<ServerException, LoginEntities>> login(
       {required String phoneNumber, required String password}) async {
     return await authRemoteDataSource.login(
         phone: phoneNumber, password: password);
@@ -21,7 +21,7 @@ class AuthRopeImpl implements AuthRepo {
   Future<Either<ServerException, RegisterEntities>> register(
       {required String name,
       required String phoneNumber,
-      required String experienceYear,
+      required int experienceYear,
       required String experienceLevel,
       required String address,
       required String password}) async {

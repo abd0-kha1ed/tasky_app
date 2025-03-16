@@ -4,12 +4,12 @@ import 'package:to_do_app/core/use_case/use_case.dart';
 import 'package:to_do_app/feature/auth/domain/entites/login_entites.dart';
 import 'package:to_do_app/feature/auth/domain/repos/auth_repo.dart';
 
-class LoginUseCase extends UseCase<LoginEntites, LoginParams> {
+class LoginUseCase extends UseCase<LoginEntities, LoginParams> {
   final AuthRepo authRepo;
   LoginUseCase(this.authRepo);
 
   @override
-  Future<Either<ServerException, LoginEntites>> call(LoginParams param) async {
+  Future<Either<ServerException, LoginEntities>> call(LoginParams param) async {
     return await authRepo.login(
         phoneNumber: param.phoneNumber, password: param.password);
   }

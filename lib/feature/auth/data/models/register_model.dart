@@ -24,8 +24,8 @@ class RegisterModel extends RegisterEntities {
       name: jsonData['displayName'],
       accessToken: jsonData['access_token'],
       refreshToken: jsonData['refresh_token'],
-      phoneNumber: jsonData['phone'] ?? 0, // يمكن أن يكون غير موجود
-      experienceYear: jsonData['experienceYears'] ?? 0,
+      phoneNumber: jsonData['phone'] ?? '', // يمكن أن يكون غير موجود
+      experienceYear: jsonData['experienceYears'] ?? '',
       experienceLevel: jsonData['level'] ?? '',
       address: jsonData['address'] ?? '',
       password: jsonData['password'] ?? '',

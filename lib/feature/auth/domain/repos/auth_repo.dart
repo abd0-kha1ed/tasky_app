@@ -4,7 +4,7 @@ import 'package:to_do_app/feature/auth/domain/entites/login_entites.dart';
 import 'package:to_do_app/feature/auth/domain/entites/register_entites.dart';
 
 abstract class AuthRepo {
-  Future<Either<ServerException, LoginEntites>> login({
+  Future<Either<ServerException, LoginEntities>> login({
     required String phoneNumber,
     required String password,
   });
@@ -12,7 +12,7 @@ abstract class AuthRepo {
   Future<Either<ServerException, RegisterEntities>> register({
     required String name,
     required String phoneNumber,
-    required String experienceYear,
+    required int experienceYear,
     required String experienceLevel,
     required String address,
     required String password,

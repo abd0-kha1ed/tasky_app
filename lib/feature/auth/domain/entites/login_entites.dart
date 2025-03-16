@@ -1,8 +1,8 @@
-class LoginEntites {
+class LoginEntities {
   final String id;
   final String phoneNumber;
   final String password;
 
-  LoginEntites(
+  LoginEntities(
       {required this.id, required this.phoneNumber, required this.password});
 }

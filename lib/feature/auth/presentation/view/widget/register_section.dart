@@ -5,6 +5,7 @@ import 'package:to_do_app/constant.dart';
 import 'package:to_do_app/core/widget/custom_button.dart';
 import 'package:to_do_app/core/widget/custom_dropdown.dart';
 import 'package:to_do_app/core/widget/custom_text_form_field.dart';
+import 'package:to_do_app/core/widget/experience_years_text_field.dart';
 import 'package:to_do_app/feature/auth/presentation/manger/register_cubit/register_cubit.dart';
 
 class RegisterSection extends StatefulWidget {
@@ -18,8 +19,9 @@ class _RegisterSectionState extends State<RegisterSection> {
   final GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   bool _isPasswordVisible = false;
-  String? name, phoneNumber, yearsOfExperience, address, password;
+  String? name, phoneNumber, address, password;
   String? selectedExperienceLevel;
+  int? yearsOfExperience;
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
@@ -81,28 +83,35 @@ class _RegisterSectionState extends State<RegisterSection> {
                   },
                 ),
                 const SizedBox(height: 15),
-                CustomTextFormField(
+                ExperienceYearsTextField(
                   hintText: 'Years of experience',
                   onChanged: (value) {
                     yearsOfExperience = value;
                   },
-                  validator: (value) {
-                    return 'enter Years of experience';
-                  },
                 ),
+                // CustomTextFormField(
+                //   hintText: 'Years of experience',
+                //   onChanged: (value) {
+                //     yearsOfExperience = value;
+                //   },
+                //   validator: (value) {
+                //     return 'enter Years of experience';
+                //   },
+                // ),
                 const SizedBox(height: 15),
-                 CustomDropdown(
-                   onChanged: (value) {
-            setState(() {
-              selectedExperienceLevel = value;
-            });
-          },
-                  items: [
-                  'Entry Level',
-                  'Mid Level',
-                  'Senior Level',
-                  'Manager',
-                ]),
+                CustomDropdown(
+                    onChanged: (value) {
+                      setState(() {
+                        selectedExperienceLevel = value;
+                      });
+                    },
+                    items: const [
+                      //fresh , junior , midLevel , senior
+                      'fresh',
+                      'junior',
+                      'midLevel',
+                      'senior',
+                    ]),
                 const SizedBox(height: 15),
                 CustomTextFormField(
                   hintText: 'Address',
@@ -146,7 +155,13 @@ class _RegisterSectionState extends State<RegisterSection> {
                             autovalidateMode = AutovalidateMode.always;
                             setState(() {});
                           }
-                          context.read<RegisterCubit>().register(name: name!, phoneNumber: phoneNumber!, experienceYear: yearsOfExperience!, experienceLevel: selectedExperienceLevel!, address: address!, password: password!);
+                          context.read<RegisterCubit>().register(
+                              name: name!,
+                              phoneNumber: phoneNumber!,
+                              experienceYear: yearsOfExperience!,
+                              experienceLevel: selectedExperienceLevel!,
+                              address: address!,
+                              password: password!);
                         },
                       ),
                 const SizedBox(height: 24),

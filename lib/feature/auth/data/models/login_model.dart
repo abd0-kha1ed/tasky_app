@@ -1,7 +1,7 @@
 import 'package:to_do_app/core/api/end_points.dart';
 import 'package:to_do_app/feature/auth/domain/entites/login_entites.dart';
 
-class LoginModel extends LoginEntites {
+class LoginModel extends LoginEntities {
   final String accessToken;
   final String refreshToken;
 
