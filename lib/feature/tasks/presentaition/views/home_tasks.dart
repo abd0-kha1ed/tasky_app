@@ -7,14 +7,16 @@ class HomeTasks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  const Scaffold(
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 22),
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
-              child: HomeTasksAppBar(),
-            ),
+              
+                child: HomeTasksAppBar(),
+              ),
+            
             SliverToBoxAdapter(
               child: SizedBox(
                 height: 50,

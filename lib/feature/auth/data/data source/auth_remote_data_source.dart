@@ -5,6 +5,7 @@ import 'package:to_do_app/core/api/end_points.dart';
 import 'package:to_do_app/core/cache/cache_helper.dart';
 import 'package:to_do_app/core/errors/excptions.dart';
 import 'package:to_do_app/feature/auth/data/models/login_model.dart';
+import 'package:to_do_app/feature/auth/data/models/logout_model.dart';
 import 'package:to_do_app/feature/auth/data/models/register_model.dart';
 
 class AuthRemoteDataSource {
@@ -25,8 +26,8 @@ class AuthRemoteDataSource {
         },
       );
       final user = LoginModel.fromJson(response);
-      final decodedToken = JwtDecoder.decode(user.accessToken);
-      CacheHelper.saveData(key: ApiKey.accessToken, value: user.accessToken);
+      final decodedToken = JwtDecoder.decode(user.refreshToken);
+      CacheHelper.saveData(key: ApiKey.refreshToken, value: user.refreshToken);
       CacheHelper.saveData(key: ApiKey.id, value: decodedToken[ApiKey.id]);
       return Right(user);
     } on ServerException catch (e) {
@@ -56,6 +57,20 @@ class AuthRemoteDataSource {
       );
 
       return Right(RegisterModel.fromJson(response));
+    } on ServerException catch (e) {
+      return Left(ServerException(errModel: e.errModel));
+    }
+  }
+
+  Future<Either<ServerException, LogoutModel>> logout(
+      {required String refreshToken}) async {
+    final token = CacheHelper.getDataString(key: ApiKey.refreshToken);
+    try {
+      final response = await api.post(EndPoint.logout, data: {
+        ApiKey.token: token,
+      });
+      // await CacheHelper.removeData(key: ApiKey.accessToken);
+      return Right(LogoutModel.fromJson(response));
     } on ServerException catch (e) {
       return Left(ServerException(errModel: e.errModel));
     }

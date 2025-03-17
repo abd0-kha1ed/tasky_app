@@ -15,10 +15,10 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody> {
   void navigateToNextView() {
     Future.delayed(const Duration(seconds: 4), () {
-      final String? accessToken =
+      final String accessToken =
           CacheHelper.getDataString(key: ApiKey.accessToken);
 
-      if (accessToken != null && accessToken.isNotEmpty) {
+      if (accessToken.isNotEmpty) {
         GoRouter.of(context).go(AppRouters
             .kHomeTasks); // ✅ التوجيه للـ HomeView إذا كان المستخدم مسجلاً
       } else {

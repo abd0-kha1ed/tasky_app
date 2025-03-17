@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:to_do_app/core/errors/excptions.dart';
 import 'package:to_do_app/feature/auth/data/data%20source/auth_remote_data_source.dart';
+import 'package:to_do_app/feature/auth/data/models/logout_model.dart';
 import 'package:to_do_app/feature/auth/domain/entites/login_entites.dart';
 import 'package:to_do_app/feature/auth/domain/entites/register_entites.dart';
 import 'package:to_do_app/feature/auth/domain/repos/auth_repo.dart';
@@ -32,5 +33,11 @@ class AuthRopeImpl implements AuthRepo {
         experienceLevel: experienceLevel,
         address: address,
         password: password);
+  }
+
+  @override
+  Future<Either<ServerException, LogoutModel>> logout(
+      {required String accessToken}) async {
+    return await authRemoteDataSource.logout(refreshToken: accessToken);
   }
 }
